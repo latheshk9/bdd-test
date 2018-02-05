@@ -33,8 +33,9 @@ func getPage(url string) string {
 
 var _ = Describe("Response", func() {
 	Context("check http response", func() {
-		It("get response", func() {
-			Expect(getPage("http://localhost:4444")).To(Equal("Hello World"))
+			host := os.Getenv("HOST")
+			Expect(getPage("http://" + host + ":4444")).To(Equal("Hello World: VishwanathDevOps.local"))
+			// Ω(getPage("http://localhost:4444")).Should(Equal("Hello World: VishwanathDevhhOps.local"))
 		})
 
 	})
