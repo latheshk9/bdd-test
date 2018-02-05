@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"os"
 	"strings"
 	"testing"
 
@@ -33,6 +34,7 @@ func getPage(url string) string {
 
 var _ = Describe("Response", func() {
 	Context("check http response", func() {
+		It("get response", func() {
 			host := os.Getenv("HOST")
 			Expect(getPage("http://" + host + ":4444")).To(Equal("Hello World"))
 			// Ω(getPage("http://localhost:4444")).Should(Equal("Hello World: VishwanathDevhhOps.local"))
@@ -40,4 +42,3 @@ var _ = Describe("Response", func() {
 
 	})
 })
-
